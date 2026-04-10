@@ -9,13 +9,13 @@ pipeline {
 
         stage('Clone') {
             steps {
-              git branch: 'main', url: 'https://github.com/vivin-03/online-book-store.git'
+                git branch: 'main', url: 'https://github.com/vivin-03/online-book-store.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME:latest .'
+                bat 'docker build -t %IMAGE_NAME%:latest .'
             }
         }
 
@@ -26,9 +26,9 @@ pipeline {
                     usernameVariable: 'USER',
                     passwordVariable: 'PASS'
                 )]) {
-                    sh '''
-                    echo $PASS | docker login -u $USER --password-stdin
-                    docker push $IMAGE_NAME:latest
+                    bat '''
+                    echo %PASS% | docker login -u %USER% --password-stdin
+                    docker push %IMAGE_NAME%:latest
                     '''
                 }
             }
