@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/vivin-03/online-book-store.git'
+              git branch: 'main', url: 'https://github.com/vivin-03/online-book-store.git'
             }
         }
 
