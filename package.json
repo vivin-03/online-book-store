@@ -1,0 +1,12 @@
+{
+  "name": "online-book-store",
+  "version": "1.0.0",
+  "description": "Simple Online Book Store for DevOps CI/CD",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
